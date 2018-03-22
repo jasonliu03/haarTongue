@@ -4,9 +4,9 @@
 int cascade()
 {
 
-char* haartraining_ouput_dir ="xml2"; //根据实际情况修改
+char* haartraining_ouput_dir ="xml"; //根据实际情况修改
 
-char* ouput_file ="xml2/haar_adaboost.xml";//根据实际情况修改
+char* ouput_file ="xml/haar_adaboost.xml";//根据实际情况修改
 
 
 const char* size_opt = "--size=";
