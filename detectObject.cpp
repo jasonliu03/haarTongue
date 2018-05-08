@@ -36,7 +36,7 @@ bool doDetect(IplImage* imageSrcS) {
                                          CV_HAAR_FIND_BIGGEST_OBJECT |
                                              CV_HAAR_DO_ROUGH_SEARCH |
                                              CV_HAAR_DO_CANNY_PRUNING,
-                                         cvSize(100, 100));
+                                         cvSize(10, 10));
     cnt = tongues->total;
     for (int i = 0; i < (tongues ? tongues->total : 0); i++) {
       r = (CvRect*)cvGetSeqElem(tongues, i);
@@ -84,7 +84,9 @@ int main()
             cvPoint(maxR.x+maxR.width,maxR.y+maxR.height),
             cvScalar(0x00,0x00,0xff) /* blue */
         );
-
+        
+        cvNamedWindow( "rst", CV_WINDOW_NORMAL| CV_WINDOW_KEEPRATIO| CV_GUI_EXPANDED);
+        cvResizeWindow("rst", 1920/2, 1080/2);
         cvShowImage("rst", imageSrcS);
         cvWaitKey(0);
     }
