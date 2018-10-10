@@ -36,7 +36,7 @@ bool doDetect(IplImage* imageSrcS) {
                                          CV_HAAR_FIND_BIGGEST_OBJECT |
                                              CV_HAAR_DO_ROUGH_SEARCH |
                                              CV_HAAR_DO_CANNY_PRUNING,
-                                         cvSize(10, 10));
+                                         cvSize(40, 40));
     cnt = tongues->total;
     for (int i = 0; i < (tongues ? tongues->total : 0); i++) {
       r = (CvRect*)cvGetSeqElem(tongues, i);
@@ -65,9 +65,12 @@ bool doDetect(IplImage* imageSrcS) {
   return isTongue;
 }
 
-int main()
+int main(int argc, char** argv)
 {
     string dir_path = "./forDetect/";
+    if(argc == 2){
+        dir_path = argv[1];
+    }
     Directory dir;
     vector<string> fileNames = dir.GetListFiles(dir_path, "*", false);
 
