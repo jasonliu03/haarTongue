@@ -71,6 +71,10 @@ int main(int argc, char** argv)
     if(argc == 2){
         dir_path = argv[1];
     }
+    if(argc == 3){
+        dir_path = argv[1];
+        cascade_nameS = argv[2]; 
+    }
     Directory dir;
     vector<string> fileNames = dir.GetListFiles(dir_path, "*", false);
 
